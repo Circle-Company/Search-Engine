@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { UsersSearchEngine } from "../../users_search";
+import { UsersSearchEngine } from "../../users-search";
 
 export async function getUsers(req: Request, res: Response) {
     const { userId } = req.body;
