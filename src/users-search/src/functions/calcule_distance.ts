@@ -1,4 +1,7 @@
-import { Coordinates, haversineDistance } from "../../../helpers/coordinates_distance"
+import {
+    Coordinates,
+    haversineDistance,
+} from "../../../helpers/coordinates_distance";
 type CalculeDistanceProps = {
     cords1: { latitude: number | null; longitude: number | null };
     cords2: { latitude: number | null; longitude: number | null };

@@ -1,8 +1,8 @@
-interface UserObject {
+export interface UserObject {
     id: number;
     username: string;
     name: string;
-    verifyed: false;
+    verifyed: boolean;
     muted: boolean;
     blocked: boolean;
     you_follow: boolean;
@@ -15,12 +15,29 @@ interface UserObject {
     weight: number;
 }
 
-type SortCandidatesProps = {
+export interface ReturnUserObject {
+    id: number;
+    username: string;
+    name: string;
+    verifyed: boolean;
+    blocked: boolean;
+    you_follow: boolean;
+    profile_picture: {
+        tiny_resolution: null | string;
+    };
+    statistic: {
+        total_followers_num: number;
+    };
+    score: number;
+}
+
+export type SortCandidatesProps = {
     candidates_with_informations: UserObject[];
 };
+
 export function calcule_score({
     candidates_with_informations,
-}: SortCandidatesProps) {
+}: SortCandidatesProps): ReturnUserObject[] {
     return candidates_with_informations.map((candidate) => {
         const weights = require("../../database/related_candidates_weights.json");
         let totalScore = candidate.weight;
