@@ -5,7 +5,7 @@ import { findUserFollow } from "../../functions/set_interactions/find_user_follo
 interface UserObject {
     user: {
         username: string;
-        user_id: number;
+        id: number;
     };
     weight: number;
 }
@@ -29,7 +29,7 @@ export async function complete_candidates_informations({
                     "blocked",
                     "name",
                 ],
-                where: { id: candidate.user.user_id },
+                where: { id: candidate.user.id },
                 include: [
                     {
                         model: ProfilePicture,
@@ -44,6 +44,7 @@ export async function complete_candidates_informations({
                 ],
             });
 
+            if (!user) return null;
             return {
                 id: user.id,
                 username: user.username,

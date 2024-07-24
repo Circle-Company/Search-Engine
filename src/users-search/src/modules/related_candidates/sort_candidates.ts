@@ -1,7 +1,8 @@
 interface UserObject {
     id: number;
     username: string;
-    verifyed: false;
+    name: string;
+    verifyed: boolean;
     blocked: boolean;
     you_follow: boolean;
     profile_picture: {

@@ -27,7 +27,7 @@ export async function find_candidates({ user_id }: FindCandidatesProps) {
                 return {
                     user: {
                         username: user.username,
-                        user_id: user.id,
+                        id: user.id,
                     },
                     weight: relation.weight,
                 };

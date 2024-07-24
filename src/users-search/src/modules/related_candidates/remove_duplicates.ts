@@ -1,7 +1,7 @@
 interface User {
     user: {
         username: string;
-        user_id: number;
+        id: number;
     };
     weight: number;
 }
@@ -17,9 +17,9 @@ export function remove_duplicates({
     const uniqueUsers: User[] = [];
 
     for (const user of finded_candidates) {
-        if (!idsSet.has(user.user.user_id)) {
+        if (!idsSet.has(user.user.id)) {
             // Adiciona o ID ao conjunto para rastrear duplicatas
-            idsSet.add(user.user.user_id);
+            idsSet.add(user.user.id);
 
             // Adiciona o usuário único à nova lista
             uniqueUsers.push(user);
